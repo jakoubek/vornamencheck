@@ -4,6 +4,10 @@
 
 # Home page
 GET     /                                       Application.index
+GET     /vorname                                Application.searchInit
+GET     /vorname/{vorname}                      Application.search
+
+*       /admin                                  module:crud
 
 # Map static resources from the /app/public folder to the /public path
 GET     /public/                                staticDir:public

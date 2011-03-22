@@ -1,4 +1,21 @@
 #{extends 'main.html' /}
-#{set title:'Home' /}
+#{set title:'Vornamencheck' /}
 
-#{welcome /}
+@{Application.search(vorname)}
+
+#{if vorname}
+<p>
+    Vorname: ${vorname.firstName}
+</p>
+#{/if}
+
+#{form @Application.searchInit()}
+#{field 'search'}
+<p>
+    <label>&{field.name}</label>
+    <input type="text" id="${field.id}" name="${field.name}" value="${field.value}" class="${field.errorClass}" />
+    <span class="error">${field.error}</span>
+    <input type="submit" value="&{'search.button.search'}"
+</p>
+#{/}
+#{/form}

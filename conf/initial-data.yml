@@ -1,0 +1,24 @@
+Gender(male):
+    genderId: M
+    genderName: maennlich
+
+Gender(female):
+    genderId: F
+    genderName: weiblich
+
+Gender(unknown):
+    genderId: U
+    genderName: unbekannt
+
+
+Vorname(1):
+    firstName: oliver
+    gender: male
+
+Vorname(2):
+    firstName: olaf
+    gender: male
+
+Vorname(3):
+    firstName: julia
+    gender: female
