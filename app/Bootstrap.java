@@ -8,9 +8,9 @@ import models.*;
 public class Bootstrap extends Job {
 
     public void doJob() {
-        if (Gender.count() == 0) {
+    /*    if (Gender.count() == 0) {
             Fixtures.load("initial-data.yml");
-        }
+        }*/
     }
 
 }

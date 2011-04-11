@@ -1,0 +1,36 @@
+#{extends 'main.html' /}
+#{set title:'Vornamencheck > Administration' /}
+
+<h2>Vornamen</h2>
+
+<table border="1">
+    <tr>
+        <td>Anzahl Vornamen</td>
+        <td>${stat.firstnameCount.format('#,##0')}</td>
+    </tr>
+    <tr>
+        <td>- davon weiblich</td>
+        <td>${stat.firstnameFemaleCount.format('#,##0')}</td>
+    </tr>
+    <tr>
+        <td>- davon männlich</td>
+        <td>${stat.firstnameMaleCount.format('#,##0')}</td>
+    </tr>
+    <tr>
+        <td>- davon unbekannt</td>
+        <td>${stat.firstnameUnknownCount.format('#,##0')}</td>
+    </tr>
+</table>
+
+<h2>Besuchsstatistiken</h2>
+
+<table border="1">
+    <tr>
+        <td>Anzahl Suchen</td>
+        <td>${stat.searchCount.format('#,##0')}</td>
+    </tr>
+    <tr>
+        <td>Anzahl Einzelseiten-Views</td>
+        <td>${stat.viewCount.format('#,##0')}</td>
+    </tr>
+</table>

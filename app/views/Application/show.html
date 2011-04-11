@@ -1,0 +1,25 @@
+#{extends 'main.html' /}
+#{set 'title'}
+${vorname.pretty}
+#{/set}
+
+#{if vorname}
+<h2 class="firstname">${vorname.pretty}</h2>
+
+#{if vorname.gender == 'F'}
+<img src="@{'public/images/female.png'}" title="female" height="48" width="48"/>
+#{/if}
+#{elseif vorname.gender == 'M'}
+<img src="@{'public/images/male.png'}" title="male" height="48" width="48"/>
+#{/elseif}
+
+<p class="firstname-description">Der Vorname <em>${vorname.pretty}</em> ist ${vorname.gendername}.</p>
+#{/if}
+
+#{if others}
+<p>Es gibt noch andere Namen, die <em>${vorname.pretty}</em> beinhalten.</p> (<a href="@{Application.searchInit(vorname.lower, 1)}">anzeigen</a>)
+#{/if}
+
+<p>
+Diesen Namen <a href="@{Application.show(vorname.lower)}/csv">im CSV-Format anzeigen</a> <a href="@{Application.show(vorname.lower)}/json">im JSON-Format anzeigen</a> <a href="@{Application.show(vorname.lower)}/xml">im XML-Format anzeigen</a>
+</p>

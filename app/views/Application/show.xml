@@ -1,0 +1,6 @@
+<firstnames>
+    <firstname>
+        <name>${vorname.firstname}</name>
+        <gender>${vorname.gender}</gender>
+    </firstname>
+</firstnames>

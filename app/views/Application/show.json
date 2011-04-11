@@ -1,0 +1,4 @@
+{
+    "firstname":"${vorname.firstname}",
+    "gender":"${vorname.gender}"
+}

@@ -1,21 +1,34 @@
 #{extends 'main.html' /}
 #{set title:'Vornamencheck' /}
 
-@{Application.search(vorname)}
+<div id="search">
+		<form action="@{Application.searchInit()}" method="GET" accept-charset="utf-8">
+			<label for="search">Nach einem Vornamen suchen</label>
+			<input type="text" name="search" value="${search}" id="searchbox" />
+			&nbsp;
+            <input type="submit" value="&{'search.button.search'}" id="searchButton" />
+		</form>
+	</div>	
 
-#{if vorname}
-<p>
-    Vorname: ${vorname.firstName}
-</p>
+#{if vornamen}
+<table>
+    <tr>
+        <th>Vorname</th><th>Geschlecht</th>
+    </tr>
+    #{list items:vornamen, as:'vorname'}
+    <tr>
+        <td><a href="@{Application.show(vorname.lower)}">${vorname.pretty}</a></td>
+        <td>${vorname.gender}</td>
+        <td><a href="@{Application.deleteEntry(vorname.id, search)}">löschen</a></td>
+    </tr>
+    #{/list}
+</table>
 #{/if}
-
-#{form @Application.searchInit()}
-#{field 'search'}
-<p>
-    <label>&{field.name}</label>
-    <input type="text" id="${field.id}" name="${field.name}" value="${field.value}" class="${field.errorClass}" />
-    <span class="error">${field.error}</span>
-    <input type="submit" value="&{'search.button.search'}"
-</p>
-#{/}
-#{/form}
+#{elseif toptenlist}
+<h2>Die beliebtesten Vornamen (dieser Datenbank)</h2>
+<ul>
+    #{list items:toptenlist, as:'top'}
+            <li><a href="@{Application.show(top.lower)}">${top.pretty}</a></li>
+    #{/list}
+</ul>
+#{/elseif}

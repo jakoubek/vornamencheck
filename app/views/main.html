@@ -11,7 +11,16 @@
         #{get 'moreScripts' /}
     </head>
     <body>
-        <h1>#{get 'title' /}</h1>
-        #{doLayout /}
+        <div id="main">
+            <div id="header">
+                <h1 id="title"><a href="@{Application.index()}">#{get 'title' /}</a></h1>
+                <p>Vornamencheck ist eine Datenbank, die zu Vornamen das Geschlecht bereitstellt.</p>
+            </div>
+            #{doLayout /}
+
+    <hr />
+    ${stat.firstnameCount} Vornamen
+
+</div>
     </body>
 </html>

@@ -4,10 +4,14 @@
 
 # Home page
 GET     /                                       Application.index
+GET     /admin                                  Admin.index
+*       /crud                                   module:crud
 GET     /vorname                                Application.searchInit
-GET     /vorname/{vorname}                      Application.search
-
-*       /admin                                  module:crud
+GET     /vorname/{id}                           Application.showID
+GET     /{vornamenname}                    Application.show
+GET     /{vornamenname}/{<json|csv|xml>format}     Application.show
+GET     /name/{vornamenname}                    Application.show
+GET     /name/{vornamenname}/{<json|csv|xml>format}     Application.show
 
 # Map static resources from the /app/public folder to the /public path
 GET     /public/                                staticDir:public
